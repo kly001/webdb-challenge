@@ -35,31 +35,4 @@ router.get("/", async(req, res) => {
       }
   });
 
-  router.put("/:id", async(req,res) => {
-      try{
-          const updateAction = await Actions.update(req.params.id, req.body);
-          if(updateAction) {
-              res.status(200).json(updateAction)
-          } else {
-              res.status(404).json({ message:"Action cannot be found"});
-          }
-        } catch (error) {
-            res.status(500).json({message:"Error updating action"});
-        }
-  });
-
-  router.delete("/:id", async(req,res) => {
-      try{
-          const deleteAction = await Actions.remove(req.params.id)
-            if(deleteAction){
-                res.status(200).json({message:"Action deleted"})
-                }
-            else {
-                res.status(404).json({message:"Error deleting action"})
-        }  
-   } catch (error) {
-       res.status(500).json({message:"Error removing action"})
-   }
-  })
-
 module.exports = router
