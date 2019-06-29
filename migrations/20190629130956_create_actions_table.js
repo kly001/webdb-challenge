@@ -12,7 +12,6 @@ exports.up = function(knex) {
         .onUpdate('CASCADE');
   
       actions.string('description', 128).notNullable();
-      actions.text('notes').notNullable();
       actions.boolean('completed').defaultTo(false);
     });
   };

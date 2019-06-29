@@ -1,23 +1,17 @@
-exports.up = function(knex) {
-  return knex.schema.createTable('actions', function(actions) {
-    actions.increments();
-
-    actions
-      .integer('project_id')
-      .unsigned()
-      .notNullable()
-      .references('id')
-      .inTable('projects')
-      .onDelete('CASCADE')
-      .onUpdate('CASCADE');
-
-    actions.string('description', 128).notNullable();
-    actions.text('notes').notNullable();
-    actions.boolean('completed').defaultTo(false);
-  });
-};
-
-exports.down = function(knex) {
-  return knex.schema.dropTableIfExists('actions');
+exports.seed = function(knex) {
+  return knex('actions').insert([
+    {
+      project_id: 1,
+      description: 'Learn 10 new words that start with a Z.',
+    },
+    {
+      project_id: 2,
+      description: 'Get all the ingredients for the cake',
+    },
+    {
+      project_id: 1,
+      description: 'Learn 10 new words that start with Q.',
+    },
+  ]);
 };
 
