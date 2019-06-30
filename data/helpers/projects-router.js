@@ -1,7 +1,7 @@
 const express = require('express');
-const Projects = require('../helpers/projectModel.js');
+const Projects = require('../helpers/project-model.js');
 // console.log(Projects)
-const router = express.Router();
+const router = require("express").Router();
 
 router.use(express.json());
 
