@@ -66,38 +66,38 @@ server.get('/api/projects/:id', async (req, res) => {
   });
   
   //update a project
-  server.put('/api/projects/:id', async (req, res) => {
-    try {
-      const count = await db('projects')
-        .where({ id: req.params.id })
-        .update(req.body);
+//   server.put('/api/projects/:id', async (req, res) => {
+//     try {
+//       const count = await db('projects')
+//         .where({ id: req.params.id })
+//         .update(req.body);
   
-      if (count > 0) {
-        const project = await db('projects')
-          .where({ id: req.params.id })
-          .first();
+//       if (count > 0) {
+//         const project = await db('projects')
+//           .where({ id: req.params.id })
+//           .first();
   
-        res.status(200).json(project);
-      } else {
-        res.status(404).json({ message: 'The project was not found' });
-      }
-    } catch (error) {}
-  });
+//         res.status(200).json(project);
+//       } else {
+//         res.status(404).json({ message: 'The project was not found' });
+//       }
+//     } catch (error) {}
+//   });
   
-  // remove a project
-  server.delete('/api/projects/:id', async (req, res) => {
-    try {
-      const count = await db('projects')
-        .where({ id: req.params.id })
-        .del();
+//   // remove a project
+//   server.delete('/api/projects/:id', async (req, res) => {
+//     try {
+//       const count = await db('projects')
+//         .where({ id: req.params.id })
+//         .del();
   
-      if (count > 0) {
-        res.status(204).end();
-      } else {
-        res.status(404).json({ message: 'Projects not found' });
-      }
-    } catch (error) {}
-  });
+//       if (count > 0) {
+//         res.status(204).end();
+//       } else {
+//         res.status(404).json({ message: 'Projects not found' });
+//       }
+//     } catch (error) {}
+//   });
 
 
 
